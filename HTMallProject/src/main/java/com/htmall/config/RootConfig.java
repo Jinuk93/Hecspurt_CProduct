@@ -17,7 +17,7 @@ import com.zaxxer.hikari.HikariDataSource;
 @MapperScan(basePackages={"com.spring.mapper"})
 public class RootConfig {
 	
-	@Bean//硫붿냼�뱶�쓽 �떎�뻾 寃곌낵濡� 諛섑솚�맂 媛앹껜�뒗 �뒪�봽�씪 媛앹껜濡� �벑濡�
+	@Bean//
 	public DataSource dataSource() {
 		HikariConfig hikariConfig = new HikariConfig();
 		hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
@@ -28,7 +28,7 @@ public class RootConfig {
 		return dataSource;
 	}
 	
-	@Bean //SQL Session 愿��젴 �꽕�젙
+	@Bean //SQL Session 
 	public SqlSessionFactory sqlSessionFactory() throws Exception{
 		SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
 		sqlSessionFactory.setDataSource(dataSource());
