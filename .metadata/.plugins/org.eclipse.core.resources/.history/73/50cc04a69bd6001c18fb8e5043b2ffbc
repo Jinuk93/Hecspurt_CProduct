@@ -1,6 +1,0 @@
-@charset "UTF-8";
-
-html { font-size : 20px; }
-body { font-size: 1rem; }
-header { background : white; }
-header > div {width: 54.5rem;; margin: 0 auto;} 
