@@ -10,7 +10,7 @@
 <body>
 	<div class="all_header"> <!-- 최상위 header div -->
 		<a href="#"><img src="./image/mainlogo.PNG" alt="mainlogo"></a>
-	
+		<!-- 쇼핑몰 메인로고 -->
 	<nav>
 		<ul class="menu">
 			
