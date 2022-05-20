@@ -1,6 +1,0 @@
-INDEX VERSION 1.4+F:\Hecspurt_CProduct\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-4072172250.index
-2423784447.index
-3862374707.index
-4201647694.index
-389946257.index
