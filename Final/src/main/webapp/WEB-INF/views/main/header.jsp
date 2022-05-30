@@ -69,7 +69,7 @@ line-height: 100%; text-align: left;}
 				<ul class="spot">
 					<c:if test="${memId == null }">
 						<li><a href="#"><span>Sign Up</span></a></li>
-						<li><a href="/Final/login/loginForm"><i class="xi-user"></i><span>Login</span></a></li>					
+						<li><a href="../login/loginForm."><i class="xi-user"></i><span>Login</span></a></li>					
 					</c:if>
 					
 					<c:if test="${memId != null }">

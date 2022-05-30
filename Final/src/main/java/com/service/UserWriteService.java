@@ -1,4 +1,4 @@
-package com.user.service;
+package com.service;
 
 import com.last.domain.UserVO;
 

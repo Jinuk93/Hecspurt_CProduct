@@ -1,4 +1,4 @@
-package com.user.controller;
+package com.controller;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.last.domain.UserVO;
-import com.user.service.UserWriteService;
+import com.service.UserWriteService;
 
 @Controller
 @RequestMapping(value="/write")
@@ -94,7 +94,7 @@ public class UserWriteController {
 	@PostMapping("/writeIdCheck")
 	@ResponseBody
 	public String writeIdCheck(String id) {
-		MemberDTO memberDTO2 = memberWriteService.writeIdCheck(id);
+		UserVO memberDTO2 = memberWriteService.writeIdCheck(id);
 		
 		if(memberDTO2 == null)
 			return "writeIdCheck_non_exist";
@@ -103,7 +103,7 @@ public class UserWriteController {
 	}
 	
 	@RequestMapping(value="/writeOk", method=RequestMethod.POST)
-	public String write(@ModelAttribute MemberDTO memberDTO, Model model) {
+	public String write(@ModelAttribute UserVO memberDTO, Model model) {
 		memberDTO.setPwd(bcryptPasswordEncoder.encode(memberDTO.getPwd()));
 		if(memberDTO.getIdPwdQuestion()=="false" || memberDTO.getIdPwdAnswer()=="") {
 	         memberDTO.setIdPwdQuestion("false");
