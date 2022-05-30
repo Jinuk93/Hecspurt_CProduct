@@ -17,6 +17,12 @@ local.properties
 .loadpath
 .recommenders
 
+## com.last.config ¹«½Ã ###
+RootConfig.java
+ServletConfig.java
+WebConfig.java
+
+
 # External tool builders
 .externalToolBuilders/
 
