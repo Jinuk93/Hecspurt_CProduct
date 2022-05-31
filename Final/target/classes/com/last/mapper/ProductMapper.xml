@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace = "com.last.mapper.ProductMapper">
+
+	<select id = "getList" resultType = "com.last.domain.ProductVO">
+		select * from ht_product where proID>0
+	</select>
+	
+	<insert id ="insert">
+		insert into ht_product(pname, unitprice, stock, category, content)
+		 values(#{pname}, #{unitprice}, #{stock}, #{category},#{content})
+	</insert>
+	
+	<insert id ="insertSelectKey">
+		<selectKey keyProperty = "proID" order = "BEFORE" resultType = "long">
+			select product_id_seq.nextval from dual
+		</selectKey>
+		insert into ht_product(proID,pname,unitprice, stock, category, content)
+		values(#{proID},#{pname}, #{unitprice}, #{stock}, #{category},#{content})
+	</insert>
+	
+	<select id = "read" resultType = "com.last.domain.ProductVO">
+		select * from ht_product where proID = #{proID}
+	</select>
+	
+	<delete id = "delete">
+		delete from ht_product where proID = #{proID}
+	</delete>
+	
+	<!-- <delete id="deleteAll">
+	</delete> -->
+	
+	<update id = "update">
+		update ht_product set 
+		pname = #{pname},
+		unitprice = #{unitprice},
+		stock = #{stock},
+		category = #{category},
+		content = #{content},
+		updateDate = sysdate
+		where proID = #{proID}
+	</update>
+	
+	 <select id="getListWithSearch" resultType="com.last.domain.ProductVO">
+		SELECT * FROM ht_product
+		WHERE
+		<include refid="criteria"></include>
+	<!--	<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+			<foreach item="type" collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type=='T'.toString()"> TITLE LIKE '%' || #{keyword} || '%'</when>
+						<when test="type=='C'.toString()"> CONTENT LIKE '%' || #{keyword} || '%'</when>
+						<when test="type=='W'.toString()"> WRITER LIKE '%' || #{keyword} || '%'</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>-->
+		proID > 0
+	</select> 
+	
+	<sql id = "criteria">
+	<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+			<foreach item="type" collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type=='T'.toString()"> TITLE LIKE '%' || #{keyword} || '%'</when>
+						<when test="type=='C'.toString()"> CONTENT LIKE '%' || #{keyword} || '%'</when>
+						<when test="type=='W'.toString()"> WRITER LIKE '%' || #{keyword} || '%'</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+	
+	
+</mapper>

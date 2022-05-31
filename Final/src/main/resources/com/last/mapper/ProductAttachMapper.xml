@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.last.mapper.ProductAttachMapper">
+    <insert id="insert">
+        INSERT INTO tbl_attach(uuid ,uploadPath, fileName, fileType, proID)
+        VALUES(#{uuid}, #{uploadPath},#{fileName},#{fileType},#{proID})
+    </insert>
+    <select id="findByProID" resultType="com.last.domain.ProductAttachVO">
+        select * from tbl_attach
+        where proID = #{proID}
+    </select>
+    <select id = "getOldFiles" resultType = "com.last.domain.ProductAttachVO">
+    	select * from tbl_attach where uploadpath = to_char(sysdate-1 , 'yyyy/mm/dd')
+    </select>
+    <delete id="deleteAll">
+		DELETE FROM TBL_ATTACH WHERE PROID = #{proID}
+	</delete>
+</mapper>
