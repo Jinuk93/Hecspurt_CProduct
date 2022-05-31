@@ -17,7 +17,7 @@ ul { list-style:none; }
 
 /* header의 전체메뉴 */
 /* 가운데정렬 = { position: relative; width: 69rem; margin: 0 auto; } */
-#Allheader header > div {  margin: 0 auto; padding: 24px 0 0 30px ; } 
+/* #Allheader header > div {  margin: 0 auto; padding: 24px 0 0 30px ; }  */
 /* header > div { position: relative; width: 69rem; margin: 0 auto; }  */
 #Allheader header > div:after { content: ""; display: block; clear: both; }
 
@@ -38,7 +38,7 @@ body::-webkit-scrollbar-track {
 
 /*header 하단메뉴*/
 #Allheader header > div .menu {  font-size: 1rem; float: left; 
-font-weight:bold; padding: 18px 0 10px 4rem; height: 95px;}
+font-weight:bold; padding: 30px 0 10px 4rem; height: 95px;}
 #Allheader header > div nav > ul > li { float: right; }
 #Allheader header > div nav > ul > li > a { display: block; padding: 12px 1.7rem 0; height: .4rem; 
 font-size: .9rem; color:#444; line-height: 100%;}
@@ -54,7 +54,7 @@ line-height: 100%; text-align: left;}
 <div id="Allheader">
 	<header>
 		<div>
-			<h1><a href="/Final/"><img src="./resources/image/logo.png" alt="logo" width="145px" height="100"></a></h1>
+			<h1><a href="/"><img src="./resources/image/logo2.png" alt="logo2" width="230px" height="100"></a></h1>
 			<!-- 로고 -->
 			<nav>
 				<ul class="menu">
@@ -68,8 +68,8 @@ line-height: 100%; text-align: left;}
 		 	<!--				header 로그인메뉴				-->
 				<ul class="spot">
 					<c:if test="${memId == null }">
-						<li><a href="/Final/login/loginForm"><span>Sign Up</span></a></li>
-						<li><a href="/Final/login/loginForm"><span>Login</span></a></li>					
+						<li><a href="/login/loginForm"><span>Sign Up</span></a></li>
+						<li><a href="/login/loginForm"><span>Login</span></a></li>					
 					</c:if>
 					
 					<c:if test="${memId != null }">

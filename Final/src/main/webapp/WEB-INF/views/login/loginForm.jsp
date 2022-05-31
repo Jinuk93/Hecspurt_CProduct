@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="/Final/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="/Final/views/css/login.css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="/views/css/login.css">
 
 <form name="loginForm" id="loginForm">
 <div id="headerBackground"> </div>
@@ -27,23 +27,23 @@
 			<ul>
 				<li>
 					<button type="button" id="kakao-login-btn" class="btn">
-						<img src="/Final/views/image/kakao.png" alt="kakao">
+						<img src="/resources/image/kakao.png" alt="kakao">
 						<span>카카오 로그인</span>
 					</button>
 				</li>
 			</ul>
 			<div id="result-div"> </div>
 			<div id="find-write">
-				<p><a href="/Final/login/findId">아이디 찾기</a></p> | 
-				<p><a href="/Final/login/findPwd">비밀번호 찾기</a></p> | 
-				<p><a href="/Final/write/memberWrite">회원가입</a></p>
+				<p><a href="/login/findId">아이디 찾기</a></p> | 
+				<p><a href="/login/findPwd">비밀번호 찾기</a></p> | 
+				<p><a href="/write/memberWrite">회원가입</a></p>
 			</div>
 		</section>
 	</div>
 </div>
 </form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/Final/js/login.js"></script>
+<script type="text/javascript" src="/resources/js/login.js"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 

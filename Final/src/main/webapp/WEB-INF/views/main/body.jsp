@@ -37,26 +37,11 @@
 						<img src="./resources/image/pullscrollpic3.jpg" alt="imageSlide.jpg" id="pullscrollpic3">
 					</li>
 				</ul>
-				<div id="dotDiv" style="text-align:center">
-					<span class="dotSpan"></span> 
-					<span class="dotSpan"></span> 
-					<span class="dotSpan"></span> 
-				</div>
 			</div>
 		</section>
 		
 		<section class="section">
-			<div class="second_section_text">
-				<h1>Pick Your Favorite</h1>
-	
-				<h2 style="white-space:pre-line;">
-				다양한 상품을 헥토몰에서 즐겨보세요<br>
-         		</h2>
-			</div>
-		</section>
-		
-		<section class="section">
-		세번째내용
+			<img src="./resources/image/pullscrollpic2.jpg" alt="imageSlide.jpg" id="pullscrollpic2">
 		</section>
 		
 		<section class="section fp-auto-height">
