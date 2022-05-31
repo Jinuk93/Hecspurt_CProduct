@@ -21,18 +21,26 @@
 			</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
-				<c:forEach items="${list }" var="board">
-
-					<div class='card' onclick='window.location.href = "#"'>
-						<img class="card-img-top" src=${img } alt="card image cap">
-						<div class="card-body">
-							<h5 class="card-title">${product.pName}</h5>
-							<p>${product.content}</p>
-							<h6 class="card-subtitle text-right">${product.unitPrice}</h6>
+				<div class='card-deck'>
+					<c:forEach items="${list }" var="product">
+					<div class='col-lg-3'>
+						<div class='panel-success panel'
+							onclick='window.location.href = "/product/get?proID=${product.proID }"'>
+							<div class="panel-heading">
+								<img class="card-img-top" src="/resources/image/notFound.png" alt="card image cap" width="100%">
+							</div>
+							<div class="panel-body">
+								<h5 class="card-title">${product.pname}</h5>
+								<p>${product.content}</p>
+								
+							</div>
+							<div class="panel-footer">
+								<h6 class="card-subtitle text-right">${product.unitprice}</h6>
+							</div>
 						</div>
 					</div>
-				</c:forEach>
-
+					</c:forEach>
+				</div>
 				<!-- /.table-responsive -->
 				<div class="row">
 					<div class="col-lg-12">
@@ -93,26 +101,25 @@
 <!-- /.row -->
 
 <script type="text/javascript">
-	$(document).ready(function(){
-		$("#regBtn").on("click",function(){
+	$(document).ready(function() {
+		$("#regBtn").on("click", function() {
 			self.location = "/board/register";
 		})
-		var searchForm=$("#searchForm");
-		$("#searchForm button").on("click", function(e){
-			if(! searchForm.find("option:selected").val()){
+		var searchForm = $("#searchForm");
+		$("#searchForm button").on("click", function(e) {
+			if (!searchForm.find("option:selected").val()) {
 				alert("검색 종류를 선택하세요");
 				return false;
 			}
-			if(!searchForm.find("input[name='keyword']").val()){
+			if (!searchForm.find("input[name='keyword']").val()) {
 				alert("키워드를 입력하세요");
 				return false;
 			}
 			e.preventDefault();
 			searchForm.submit();
-			
+
 		})
 	});
-	
 </script>
 
 <%@include file="../includes/footer.jsp"%>
