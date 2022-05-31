@@ -41,17 +41,17 @@ public class UserWriteController {
 		return "/index";
 	}
 
-	@PostMapping("/writeEmailCheck")
-	@ResponseBody
-	public String writeEmailCheck(@ModelAttribute UserVO memberDTO) {
-		
-		UserVO memberDTO2 = memberWriteService.writeEmailCheck(memberDTO);
-		
-		if(memberDTO2 == null)
-			return "writeEmailCheck_non_exist";
-		else
-			return memberDTO2.getId();
-	}
+	/*
+	 * @PostMapping("/writeEmailCheck")
+	 * 
+	 * @ResponseBody public String writeEmailCheck(@ModelAttribute UserVO memberDTO)
+	 * {
+	 * 
+	 * UserVO memberDTO2 = memberWriteService.writeEmailCheck(memberDTO);
+	 * 
+	 * if(memberDTO2 == null) return "writeEmailCheck_non_exist"; else return
+	 * memberDTO2.getId(); }
+	 */
 	
 	//이메일 발송
 	@GetMapping(value="/writeEmailSend")
@@ -91,32 +91,26 @@ public class UserWriteController {
 		return num;
 	}
 	
-	@PostMapping("/writeIdCheck")
-	@ResponseBody
-	public String writeIdCheck(String id) {
-		UserVO memberDTO2 = memberWriteService.writeIdCheck(id);
-		
-		if(memberDTO2 == null)
-			return "writeIdCheck_non_exist";
-		else
-			return memberDTO2.getId();
-	}
-	
-	@RequestMapping(value="/writeOk", method=RequestMethod.POST)
-	public String write(@ModelAttribute UserVO memberDTO, Model model) {
-		memberDTO.setPwd(bcryptPasswordEncoder.encode(memberDTO.getPwd()));
-		if(memberDTO.getIdPwdQuestion()=="false" || memberDTO.getIdPwdAnswer()=="") {
-	         memberDTO.setIdPwdQuestion("false");
-	         memberDTO.setIdPwdAnswer("false");
-	    }
-		
-		if(memberDTO.getWritePath()=="")
-			memberDTO.setWritePath("false");
-		
-		memberWriteService.write(memberDTO);
-		model.addAttribute("id", memberDTO.getId());
-		model.addAttribute("display", "write/writeOk.jsp");
-		return "/index";
-	}
-	
+	/*
+	 * @PostMapping("/writeIdCheck")
+	 * 
+	 * @ResponseBody public String writeIdCheck(String id) { UserVO memberDTO2 =
+	 * memberWriteService.writeIdCheck(id);
+	 * 
+	 * if(memberDTO2 == null) return "writeIdCheck_non_exist"; else return
+	 * memberDTO2.getId(); }
+	 */
+	/*
+	 * @RequestMapping(value="/writeOk", method=RequestMethod.POST) public String
+	 * write(@ModelAttribute UserVO memberDTO, Model model) {
+	 * memberDTO.setPwd(bcryptPasswordEncoder.encode(memberDTO.getPwd()));
+	 * if(memberDTO.getIdPwdQuestion()=="false" || memberDTO.getIdPwdAnswer()=="") {
+	 * memberDTO.setIdPwdQuestion("false"); memberDTO.setIdPwdAnswer("false"); }
+	 * 
+	 * if(memberDTO.getWritePath()=="") memberDTO.setWritePath("false");
+	 * 
+	 * memberWriteService.write(memberDTO); model.addAttribute("id",
+	 * memberDTO.getId()); model.addAttribute("display", "write/writeOk.jsp");
+	 * return "/index"; }
+	 */	
 }

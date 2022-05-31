@@ -1,4 +1,4 @@
-//package com.dao;
+//package com.last.dao;
 //
 //import com.last.domain.UserVO;
 //

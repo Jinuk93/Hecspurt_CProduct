@@ -1,4 +1,4 @@
-package com.controller;
+package com.last.controller;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
@@ -16,24 +16,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.service.LoginService;
+
+import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
+
 import com.last.domain.UserVO;
 
 @Controller
 @RequestMapping(value="/login")
+@AllArgsConstructor
 public class LoginController {
-	@Autowired
+//	@Autowired
 	private LoginService loginService;
-	@Autowired
+//	@Autowired
 	private JavaMailSender mailSender;
-	@Autowired
+//	@Autowired
     BCryptPasswordEncoder passwordEncoder;
+	
 	
 	//로그인창
 	@GetMapping(value="/loginForm")
-	public String loginForm(Model model) {
+	public void loginForm(Model model) {
+		System.out.println("test");
 		model.addAttribute("display", "login/loginForm.jsp");
-		return "/index";
 	}
+	
 	//아이디 로그인 https://nahosung.tistory.com/75 비밀번호 암호화 참고
 	@PostMapping(value="/login")
 	@ResponseBody
@@ -179,6 +186,7 @@ public class LoginController {
 	 * 
 	 * loginService.findPwdUpdate(memberDTO); }
 	 */
+	
 	//로그아웃
 	@GetMapping(value="/logout")
 	public String logout(HttpSession session) {	
