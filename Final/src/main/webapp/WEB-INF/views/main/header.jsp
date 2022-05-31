@@ -54,7 +54,7 @@ line-height: 100%; text-align: left;}
 <div id="Allheader">
 	<header>
 		<div>
-			<h1><a href="/Final/"><img src="/Final/views/image/logo.jpg" alt="logo"></a></h1>
+			<h1><a href="/Final/"><img src="./resources/image/logo.png" alt="logo" width="145px" height="100"></a></h1>
 			<!-- 로고 -->
 			<nav>
 				<ul class="menu">
@@ -69,7 +69,7 @@ line-height: 100%; text-align: left;}
 				<ul class="spot">
 					<c:if test="${memId == null }">
 						<li><a href="/Final/login/loginForm"><span>Sign Up</span></a></li>
-						<li><a href="/Final/login/loginForm"><i class="xi-user"></i><span>Login</span></a></li>					
+						<li><a href="/Final/login/loginForm"><span>Login</span></a></li>					
 					</c:if>
 					
 					<c:if test="${memId != null }">

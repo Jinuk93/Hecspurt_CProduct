@@ -4,7 +4,7 @@
 <html>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/Final/resources/css/jquery.fullPage.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/jquery.fullPage.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./resources/css/body.css">	
 
@@ -58,11 +58,14 @@
 		<section class="section">
 		세번째내용
 		</section>
+		
+		<section class="section fp-auto-height">
+			<jsp:include page="footer.jsp"/>
+		</section>
 	</div>	
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./resources/js/jquery.fullPage.js"></script>
 <script src="./resources/js/body.js"></script>
-<script type="text/javascript"></script>
 </body>
 </html>
