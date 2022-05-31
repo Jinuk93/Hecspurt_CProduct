@@ -22,7 +22,7 @@ public class RootConfig {
 		HikariConfig hikariConfig = new HikariConfig();
 		hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
 		hikariConfig.setJdbcUrl("jdbc:log4jdbc:oracle:thin:@localhost:1521:XE");
-		hikariConfig.setUsername("c##scott");
+		hikariConfig.setUsername("scott");
 		hikariConfig.setPassword("tiger");
 		HikariDataSource dataSource = new HikariDataSource(hikariConfig);
 		return dataSource;

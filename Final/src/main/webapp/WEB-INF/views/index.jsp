@@ -14,21 +14,21 @@
 <div id="headerHeader">
 
 < 	<div id="headerSection">
-		<jsp:include page="main/header.jsp"/>
+<%-- 		<jsp:include page="main/header.jsp"/> --%>
 	</div>
 	
  	<div id="bodySection">
-		<c:if test="${empty display }">
+<%-- 		<c:if test="${empty display }">
 			<jsp:include page="main/body.jsp"/>
 		</c:if>
 	    <c:if test="${not empty display }">
 	        <jsp:include page="${display }"/>
-	    </c:if>
+	    </c:if> --%>
 	</div>
 </div>
 </script>
 </body>
 <footer>
-	<jsp:include page="main/footer.jsp" />
+<%-- 	<jsp:include page="main/footer.jsp" /> --%>
 </footer>
 </html>
