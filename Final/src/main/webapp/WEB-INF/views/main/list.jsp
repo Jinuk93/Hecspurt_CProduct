@@ -21,14 +21,8 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 	                       	<c:forEach items="${list }" var="board">
-	                            <tr class="odd gradeX">
-	                                <td>${board.bno }</td>
-	                                <td><a href='/board/get?bno=${board.bno }'>${board.title }</a></td>
-	                                <td>${board.writer }</td>
-	                                <td class="center">${board.regDate }</td>
-	                                <td class="center">${board.updateDate }</td>
-	                            </tr>
-	                            <div class='card'>
+
+	                            <div class='card' onclick='window.location.href = "#"' >
 	                            	<img class="card-img-top" src=${img } alt="card image cap">
 	                            	<div class="card-body">
 	                            		<h5 class="card-title">${product.pName}</h5>
