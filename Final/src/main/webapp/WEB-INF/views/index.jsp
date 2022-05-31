@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>HTmall | 감도 깊은 취향 셀렉트샵 HTmall</title>
+<link rel="shortcut icon" href="./resources/image/logo.jpg">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>

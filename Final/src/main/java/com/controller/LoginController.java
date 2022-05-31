@@ -37,44 +37,39 @@ public class LoginController {
 	//아이디 로그인 https://nahosung.tistory.com/75 비밀번호 암호화 참고
 	@PostMapping(value="/login")
 	@ResponseBody
-	public String login(@ModelAttribute UserVO memberDTO, HttpSession session) {	
-		UserVO memberDTO2 = loginService.login(memberDTO);
-		
-		//비밀번호 복호화
-		String inputPwd = memberDTO.getPwd();
-		String dbPwd = null;
-		if(memberDTO2 != null) dbPwd = memberDTO2.getPwd();
-		
-		if(! passwordEncoder.matches(inputPwd, dbPwd)) {
-			return "";
-			
-		}else {
-			session.setAttribute("memId", memberDTO2.getId());
-			System.out.println("LoginController 세션아이디 저장 "+session.getAttribute("memId"));
-			
-			loginService.loginTime(memberDTO2.getId());
-			return memberDTO2.getId();			
-		}	
-	}
+	/*
+	 * public String login(@ModelAttribute UserVO memberDTO, HttpSession session) {
+	 * UserVO memberDTO2 = loginService.login(memberDTO);
+	 * 
+	 * //비밀번호 복호화 String inputPwd = memberDTO.getPwd(); String dbPwd = null;
+	 * if(memberDTO2 != null) dbPwd = memberDTO2.getPwd();
+	 * 
+	 * if(! passwordEncoder.matches(inputPwd, dbPwd)) { return "";
+	 * 
+	 * }else { session.setAttribute("memId", memberDTO2.getId());
+	 * System.out.println("LoginController 세션아이디 저장 "+session.getAttribute("memId"))
+	 * ;
+	 * 
+	 * loginService.loginTime(memberDTO2.getId()); return memberDTO2.getId(); } }
+	 */
 	//카카오 로그인 세션 저장
-	@PostMapping(value="/kakaoLogin")
-	@ResponseBody
-	public void kakaoLogin(@ModelAttribute UserVO memberDTO, HttpSession session) {	
-		//아이디 있는지 확인
-		UserVO memberDTO2 = loginService.loginIdCheck(memberDTO.getId());
-
-		if(memberDTO2 == null) {
-			//아이디 없으면 회원가입
-			loginService.kakaoWrite(memberDTO); 
-		}
-
-		session.setAttribute("memId", memberDTO.getId());
-		session.setAttribute("memNickname", memberDTO.getNickname());
-		session.setAttribute("memWritePath", memberDTO.getWritePath());
-		System.out.println("LoginController 세션카카오아이디 저장 "+session.getAttribute("memId")+session.getAttribute("memWritePath"));	
-		
-		loginService.loginTime(memberDTO.getId());
-	}
+	/*
+	 * @PostMapping(value="/kakaoLogin")
+	 * 
+	 * @ResponseBody public void kakaoLogin(@ModelAttribute UserVO memberDTO,
+	 * HttpSession session) { //아이디 있는지 확인 UserVO memberDTO2 =
+	 * loginService.loginIdCheck(memberDTO.getId());
+	 * 
+	 * if(memberDTO2 == null) { //아이디 없으면 회원가입 loginService.kakaoWrite(memberDTO); }
+	 * 
+	 * session.setAttribute("memId", memberDTO.getId());
+	 * session.setAttribute("memNickname", memberDTO.getNickname());
+	 * session.setAttribute("memWritePath", memberDTO.getWritePath());
+	 * System.out.println("LoginController 세션카카오아이디 저장 "+session.getAttribute(
+	 * "memId")+session.getAttribute("memWritePath"));
+	 * 
+	 * loginService.loginTime(memberDTO.getId()); }
+	 */
 	//아이디 찾기창
 	@GetMapping(value="/findId")
 	public String findId(Model model) {
@@ -82,28 +77,27 @@ public class LoginController {
 		return "/index";
 	}
 	//질문으로 찾기
-	@PostMapping(value="/findIdQna")
-	@ResponseBody
-	public String findIdQna(@ModelAttribute UserVO memberDTO) {
-		UserVO memberDTO2 = loginService.findIdQna(memberDTO);
-
-		if(memberDTO2 == null)
-			return "findIdQna_non_exist"; //아이디 없음
-		else
-			return memberDTO2.getId(); //아이디 있음
-	}
+	/*
+	 * @PostMapping(value="/findIdQna")
+	 * 
+	 * @ResponseBody public String findIdQna(@ModelAttribute UserVO memberDTO) {
+	 * UserVO memberDTO2 = loginService.findIdQna(memberDTO);
+	 * 
+	 * if(memberDTO2 == null) return "findIdQna_non_exist"; //아이디 없음 else return
+	 * memberDTO2.getId(); //아이디 있음 }
+	 */
 	//이메일 확인
-	@PostMapping("/loginEmailCheck")
-	@ResponseBody
-	public String loginEmailCheck(@ModelAttribute UserVO memberDTO) {
-		UserVO memberDTO2 = loginService.loginEmailCheck(memberDTO);
-
-		if(memberDTO2 == null)
-			return "loginEmailCheck_non_exist"; //이메일 발송 불가능
-		else
-			return memberDTO2.getId(); //이메일 발송 가능
-		
-	}
+	/*
+	 * @PostMapping("/loginEmailCheck")
+	 * 
+	 * @ResponseBody public String loginEmailCheck(@ModelAttribute UserVO memberDTO)
+	 * { UserVO memberDTO2 = loginService.loginEmailCheck(memberDTO);
+	 * 
+	 * if(memberDTO2 == null) return "loginEmailCheck_non_exist"; //이메일 발송 불가능 else
+	 * return memberDTO2.getId(); //이메일 발송 가능
+	 * 
+	 * }
+	 */
 	//이메일 발송
 	@GetMapping(value = "/loginEmailSend")
 	@ResponseBody
@@ -152,16 +146,15 @@ public class LoginController {
 		return "/index";
 	}
 	//아이디 확인
-	@PostMapping("/loginIdCheck")
-	@ResponseBody
-	public String loginIdCheck(String id) {
-		UserVO memberDTO2 = loginService.loginIdCheck(id);
-
-		if(memberDTO2 == null)
-			return "loginIdCheck_non_exist"; //아이디 없음
-		else
-			return memberDTO2.getId(); //아이디 있음
-	}
+	/*
+	 * @PostMapping("/loginIdCheck")
+	 * 
+	 * @ResponseBody public String loginIdCheck(String id) { UserVO memberDTO2 =
+	 * loginService.loginIdCheck(id);
+	 * 
+	 * if(memberDTO2 == null) return "loginIdCheck_non_exist"; //아이디 없음 else return
+	 * memberDTO2.getId(); //아이디 있음 }
+	 */
 	//비밀번호 찾기 창 2
 	@GetMapping(value="/findPwd2")
 	public String findPwd2(String id, Model model) {
@@ -177,14 +170,15 @@ public class LoginController {
 		return "/index";
 	}
 	//비밀번호 재설정
-	@PostMapping(value="/findPwdUpdate")
-	@ResponseBody
-	public void findPwdUpdate(@ModelAttribute UserVO memberDTO, Model model) {
-		//비밀번호 암호화
-		memberDTO.setPwd(passwordEncoder.encode(memberDTO.getPwd()));
-		
-		loginService.findPwdUpdate(memberDTO);
-	}
+	/*
+	 * @PostMapping(value="/findPwdUpdate")
+	 * 
+	 * @ResponseBody public void findPwdUpdate(@ModelAttribute UserVO memberDTO,
+	 * Model model) { //비밀번호 암호화
+	 * memberDTO.setPwd(passwordEncoder.encode(memberDTO.getPwd()));
+	 * 
+	 * loginService.findPwdUpdate(memberDTO); }
+	 */
 	//로그아웃
 	@GetMapping(value="/logout")
 	public String logout(HttpSession session) {	

@@ -4,9 +4,10 @@
 <html>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/milkyWayForest/css/jquery.fullPage.css">
+<link rel="stylesheet" type="text/css" href="/Final/resources/css/jquery.fullPage.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/Final/views/css/body.css">	
+<link rel="stylesheet" href="./resources/css/body.css">	
+
 <style type="text/css">
 .section {  width:100%; height:100%; position:relative; color:#ffffff; font-size:24pt; }
 .section .second_section_text { position:relative; top:26%; transform:translate(-47%, -50%); opacity:0;}  
@@ -16,6 +17,7 @@
 	100% { opacity:1; left:50%;} 
 }
 </style>
+
 <body>
 <!-- 전체영역 -->
 <div id="fullPage">
@@ -26,13 +28,13 @@
 			<div class="sildeDiv">
 				<ul>
 					<li>
-						<img src="./WEB-INF/views/image/pullscrollpic1.jpg" alt="imageSlide.jpg" id="pullscrollpic1">
+						<img src="./resources/image/pullscrollpic1.jpg" alt="imageSlide.jpg" id="pullscrollpic1">
 					</li>
 					<li>
-						<img src="<%=request.getContextPath() %>/image/pullscrollpic2.jpg" alt="imageSlide.jpg" id="pullscrollpic2">
+						<img src="./resources/image/pullscrollpic2.jpg" alt="imageSlide.jpg" id="pullscrollpic2">
 					</li>
 					<li>
-						<img src="./image/pullscrollpic3.jpg" alt="imageSlide.jpg" id="pullscrollpic3">
+						<img src="./resources/image/pullscrollpic3.jpg" alt="imageSlide.jpg" id="pullscrollpic3">
 					</li>
 				</ul>
 				<div id="dotDiv" style="text-align:center">
@@ -59,8 +61,8 @@
 	</div>	
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/Final/js/jquery.fullPage.js"></script>
-<script src="/Final/js/body.js"></script>
+<script src="./resources/js/jquery.fullPage.js"></script>
+<script src="./resources/js/body.js"></script>
 <script type="text/javascript"></script>
 </body>
 </html>
