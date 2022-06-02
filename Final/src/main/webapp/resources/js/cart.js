@@ -35,9 +35,10 @@ var cartService=(function(){
 		});
 	}
 	function update(cart, callback, error){
+		console.log(cart);
 		$.ajax({
 			type: 'put',
-			url : '/cart/'+cart.cID,
+			url : '/cart/'+cart.cid,
 			data: JSON.stringify(cart),
 			contentType: "application/json; charset=utf-8",
 			success: function(result,status,xhr){
@@ -49,6 +50,7 @@ var cartService=(function(){
 		});
 	}
 	function get(cart, callback,error){
+		console.log("cart",cart);
 		$.ajax({
 			type: 'post',
 			url:'/cart/get',

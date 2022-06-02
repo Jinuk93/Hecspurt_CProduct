@@ -124,7 +124,7 @@
 	</div>
 </div>
 <!-- /.modal fade -->
-</div>
+
 <!-- /.row -->
 <script src="/resources/js/reply.js"></script>
 <script src="/resources/js/cart.js"></script>
@@ -306,7 +306,7 @@
         // uploadResult 태그에 해당 데이터를 출력하기위한 함수
     })
 	$("#addCartBtn").on("click", (e) => {
-        
+        console.log("click!");
         //var uID=sessionStorage.getItem('userID');
         cartService.get({
         	//userID : uID,
@@ -314,7 +314,8 @@
         	proID:proIDValue
         },(result)=>{
         	console.log(result);
-        	/* if(!result){
+        	
+        	if(!result){
         		console.log("Need add");
         		cartService.add({
         			//userID : uID,
@@ -326,17 +327,20 @@
         		});
         		 
         	 }else{
-        		console.log("Need update");
+        		 var rCid=result.getElementsByTagName('cid')[0].textContent;
+        		 var rAmount=Number(result.getElementsByTagName('amount')[0].textContent)+1;
+        		 console.log(rCid);
         		 cartService.update({
         			//userID : uID,
                 	userID:'admin1',
                 	proID:proIDValue,
-        			amount:result.amount+1
+        			amount:rAmount,
+        			cid:rCid
         		},(res)=>{
         			alert("장바구니에 물건을 추가했습니다.");
-        		}); 
+        		});
         	}
-        	 */
+        	
         });
     });
     

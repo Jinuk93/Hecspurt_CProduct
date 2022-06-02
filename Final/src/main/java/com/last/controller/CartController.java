@@ -34,7 +34,7 @@ public class CartController {
 		return insertCount==1? new ResponseEntity<>("success",HttpStatus.OK)
 				:new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-	@PostMapping(value="/get",consumes="application/json",produces= {MediaType.TEXT_PLAIN_VALUE})
+	@PostMapping(value="/get",consumes="application/json")
 	public ResponseEntity<CartVO> get(@RequestBody CartVO vo){
 		log.info("get Cart");
 		return new ResponseEntity<>(service.get(vo),HttpStatus.OK);
