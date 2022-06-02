@@ -3,6 +3,8 @@ package com.last.domain;
 import java.sql.Date;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -18,4 +20,8 @@ public class ProductVO {
 	private Date updateDate;
 	private String userID;
 	private List<ProductAttachVO> attachList;
+	
+	
+	private String imageName;
+	private MultipartFile file;
 }

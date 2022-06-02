@@ -19,6 +19,11 @@
 		values(#{proID},#{pname}, #{unitprice}, #{stock}, #{category},#{content})
 	</insert>
 	
+	<insert id ="insertProduct">
+		insert into ht_product(pname, unitprice, stock, category, content, ImageName)
+		 values(#{pname}, #{unitprice}, #{stock}, #{category},#{content}, #{imageName})
+	</insert>
+	
 	<select id = "read" resultType = "com.last.domain.ProductVO">
 		select * from ht_product where proID = #{proID}
 	</select>

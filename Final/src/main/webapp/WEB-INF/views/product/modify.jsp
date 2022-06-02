@@ -43,7 +43,12 @@
                                 <div class = "form-group">
                                 	<label>UpdateDate</label><input class="form-control" name="updateDate" value='<fmt:formatDate pattern="yyyy-MM-dd" value="${product.updateDate}"/>' readonly="readonly"/>
                                 </div>
-                                
+                                <div class="form-group">
+			                        <label>이미지</label> <img class="card-img-top"
+										src="/display?fileName=${product.imageName }"
+										alt="card image cap" width="100%">		                
+			                        
+			                    </div>
 								<button type = "submit" data-oper = 'modify'class ="btn btn-info">modify</button>
 								<button type = "submit" data-oper = 'remove'class ="btn btn-danger">remove</button>								
 								<button type = "submit" data-oper = 'list'class ="btn btn-success">list</button>

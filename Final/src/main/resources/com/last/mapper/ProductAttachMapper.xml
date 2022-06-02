@@ -15,4 +15,11 @@
     <delete id="deleteAll">
 		DELETE FROM TBL_ATTACH WHERE PROID = #{proID}
 	</delete>
+	
+	
+	
+	<select id="getList" resultType="com.last.domain.ProductAttachVO">
+        select * from tbl_attach
+    </select>
+	
 </mapper>

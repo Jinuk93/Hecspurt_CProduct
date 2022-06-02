@@ -43,11 +43,16 @@ public class UploadController {
 	public ResponseEntity<List<ProductAttachVO>> uploadAjaxPost(MultipartFile[] uploadFile) {
 		String uploadFolder= "e:/upload"; List<ProductAttachVO> list = new ArrayList<>();
 		
+		log.info("test01");
+		
 		File uploadPath = new File(uploadFolder, getFolder());
+		log.info("test02");
 		log.info("Upload path : " +uploadPath);
 		if(uploadPath.exists() == false) {
 			uploadPath.mkdirs();
 		}
+		
+		log.info("test03");
 		
 		for(MultipartFile multipartFile: uploadFile) {
 			ProductAttachVO attachVO = new ProductAttachVO();
