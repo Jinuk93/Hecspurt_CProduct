@@ -1,4 +1,6 @@
 package com.last.controller;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.last.domain.ProductAttachVO;
@@ -43,6 +46,55 @@ public class ProductController {
 	   rttr.addFlashAttribute("result", product.getProID());
 	   return "redirect:/product/list";
    }
+   
+   
+   @PostMapping("/register2")
+   public String register2(ProductVO product, RedirectAttributes rttr) {
+	   log.info("register :" + product);
+	   
+	   
+	   MultipartFile uploadFile = product.getFile();
+	   
+	   
+	   String uploadFolder = "E:\\upload\\";
+       File uploadPath = new File(uploadFolder);
+       log.info("upload Path: " + uploadPath);
+       if (!uploadPath.exists()) {
+           uploadPath.mkdirs();
+       }
+	   
+       String uploadFileName = uploadFile.getOriginalFilename();
+       log.info("uploadFileName: " + uploadFileName);
+
+       product.setImageName(uploadFileName);
+       
+       File saveFile = new File(uploadPath, uploadFileName);
+	   
+       
+       try {
+		uploadFile.transferTo(saveFile);
+	} catch (IOException e) {
+		log.error(e.getMessage());
+//		e.printStackTrace();
+	} 
+       
+       
+       
+       
+	  service.register2(product);
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   rttr.addFlashAttribute("result", product.getProID());
+	   return "redirect:/product/list";
+   }
+   
    @GetMapping({"/get", "/modify"})
    public void get(@RequestParam("proID") Long proID, Model model) {
 	   log.info("/get");
@@ -111,6 +163,10 @@ public class ProductController {
    
    @GetMapping("/register")
    public void register() {
+   }
+   
+   @GetMapping("/register2")
+   public void register2() {
    }
 
    @GetMapping(value = "/getAttachList"

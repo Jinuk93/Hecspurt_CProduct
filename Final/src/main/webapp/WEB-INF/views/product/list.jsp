@@ -117,7 +117,7 @@
 	
 	
 	$("#regBtn").on("click",() => {
-		self.location = "/product/register";
+		self.location = "/product/register2";
 	});
 	
 	

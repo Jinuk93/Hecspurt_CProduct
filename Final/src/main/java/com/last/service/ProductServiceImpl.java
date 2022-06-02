@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 	@Override
 	public void register(ProductVO product) {
-		log.info("register¡¦" + product.getProID());
+		log.info("registerï¿½ï¿½" + product.getProID());
 		mapper.insertSelectKey(product);
 		if(product.getAttachList()==null||product.getAttachList().size()<=0){
 			return ;
@@ -63,6 +63,15 @@ public class ProductServiceImpl implements ProductService{
 		   log.info("get Attach list by proID" + proID);
 		   return attachMapper.findByProID(proID);
 	   }
+	@Override
+	public List<ProductAttachVO> getAttachALL() {
+		return null;
+	}
+	@Override
+	public int register2(ProductVO product) {
+		log.info("ProductServiceImpl.register2");
+		return mapper.insertProduct(product);
+	}
 	 
 	 
 }

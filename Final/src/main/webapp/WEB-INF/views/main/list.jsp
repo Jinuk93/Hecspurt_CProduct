@@ -22,24 +22,31 @@
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 				<div class='card-deck'>
+				
+				
 					<c:forEach items="${list }" var="product">
-					<div class='col-lg-3'>
-						<div class='panel-success panel'
-							onclick='window.location.href = "/product/get?proID=${product.proID }"'>
-							<div class="panel-heading">
-								<img class="card-img-top" src="/resources/image/notFound.png" alt="card image cap" width="100%">
-							</div>
-							<div class="panel-body">
-								<h5 class="card-title">${product.pname}</h5>
-								<p>${product.content}</p>
-								
-							</div>
-							<div class="panel-footer">
-								<h6 class="card-subtitle text-right">${product.unitprice}</h6>
+						<div class='col-lg-3'>
+							<div class='panel-success panel'
+								onclick='window.location.href = "/product/get?proID=${product.proID }"'>
+								<!-- 이미지 -->
+								<div class="panel-heading">
+									<!-- <img class="card-img-top" src="/resources/image/notFound.png" alt="card image cap" width="100%"> -->
+									<img class="card-img-top"
+										src="/display?fileName=${product.imageName }"
+										alt="card image cap" width="100%">
+								</div>
+								<div class="panel-body">
+									<h5 class="card-title">${product.pname}</h5>
+									<p>${product.content}</p>
+								</div>
+								<div class="panel-footer">
+									<h6 class="card-subtitle text-right">${product.unitprice}</h6>
+								</div>
 							</div>
 						</div>
-					</div>
 					</c:forEach>
+					
+					
 				</div>
 				<!-- /.table-responsive -->
 				<div class="row">
@@ -103,8 +110,9 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#regBtn").on("click", function() {
-			self.location = "/board/register";
+			self.location = "/product/register2";
 		})
+		
 		var searchForm = $("#searchForm");
 		$("#searchForm button").on("click", function(e) {
 			if (!searchForm.find("option:selected").val()) {
@@ -119,7 +127,12 @@
 			searchForm.submit();
 
 		})
+		
+
+	
 	});
+	
+	
 </script>
 
 <%@include file="../includes/footer.jsp"%>

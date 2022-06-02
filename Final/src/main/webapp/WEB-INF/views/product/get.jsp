@@ -48,14 +48,17 @@
         <!-- /.panel-body -->
     </div>
     <!-- /.panel -->
-    <div class="panel panel-info">
-        <div class="panel-heading">Attached File List</div>
-        <div class="panel-body">
-            <div class="form-group uploadResult">
-                <ul></ul>
-            </div>
-        </div>
-    </div>
+		    <div class="panel panel-info">
+		        <div class="panel-heading">Attached File List</div>
+		        <div class="panel-body">
+		            <div class="form-group uploadResult">
+						<img class="card-img-top"
+										src="/display?fileName=${product.imageName }"
+										alt="card image cap" width="100%">		                
+
+		            </div>
+		        </div>
+		    </div>
 </div>
 
 <!-- /.col-lg-6 -->

@@ -95,3 +95,5 @@ CREATE TABLE tbl_attach(
   
     DROP TABLE HT_Product;
     DROP TABLE HT_USER;
+
+    alter table ht_product add ImageName varchar(255);

@@ -11,6 +11,8 @@ public List<ProductVO> getList();
 	public void insert(ProductVO product);
 
 	public void insertSelectKey(ProductVO product);
+	
+	public int insertProduct(ProductVO product);
 
 	public ProductVO read(long l);
 

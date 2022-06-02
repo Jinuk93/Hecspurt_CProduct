@@ -170,6 +170,9 @@
 
             console.log("files.length: " + files.length);
 
+            alert(formData);
+            console.log(formData);
+            
             // 파일 업로드
             $.ajax({
                 url: "/uploadAjaxAction",
