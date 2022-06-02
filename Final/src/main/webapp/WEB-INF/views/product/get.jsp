@@ -1,126 +1,133 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="../includes/header.jsp" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@include file="../includes/header.jsp"%>
 
 <div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">Product List Page</h1>
-    </div>
-    <!-- /.col-lg-12 -->
+	<div class="col-lg-12">
+		<h1 class="page-header">Product List Page</h1>
+	</div>
+	<!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
 <div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">상품 목록</div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-                <div class="form-group">
-                    <label>ProID</label> <input class="form-control" name="proID" value='${product.proID}' readonly="readonly">
-                </div>
-                <div class="form-group">
-                    <label>상품명</label> <input type="text" class="form-control" name="pname" value='${product.pname}' readonly="readonly">
-                </div>
-                <div class="form-group">
-                    <label>상품가격</label> <input type="text" class="form-control" name="unitprice" value='${product.unitprice}' readonly="readonly">
-                </div>
-                <div class="form-group">
-                    <label>재고량</label> <input type="text" class="form-control" name="stock" value='${product.stock}' readonly="readonly">
-                </div>
-                <div class="form-group">
-                    <label>카테고리</label> <input type="text" class="form-control" name="category" value='${product.category}' readonly="readonly">
-                </div>
-                <div class="form-group">
-                    <label>상품내용</label> <textarea class="form-control" name="content" rows="3" readonly="readonly">${product.content}</textarea>
-                </div>
-                <button class="btn btn-info"
-                        onclick="location.href='/product/modify?proID=${product.proID}'">Modify
-                </button>
-                <button class="btn btn-success"
-                        onclick="location.href='/product/list'">List
-                </button>
-                <!-- /.table-responsive -->
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">상품 목록</div>
+			<!-- /.panel-heading -->
+			<div class="panel-body">
+				<div class="form-group">
+					<label>ProID</label> <input class="form-control" name="proID"
+						value='${product.proID}' readonly="readonly">
+				</div>
+				<div class="form-group">
+					<label>상품명</label> <input type="text" class="form-control"
+						name="pname" value='${product.pname}' readonly="readonly">
+				</div>
+				<div class="form-group">
+					<label>상품가격</label> <input type="text" class="form-control"
+						name="unitprice" value='${product.unitprice}' readonly="readonly">
+				</div>
+				<div class="form-group">
+					<label>재고량</label> <input type="text" class="form-control"
+						name="stock" value='${product.stock}' readonly="readonly">
+				</div>
+				<div class="form-group">
+					<label>카테고리</label> <input type="text" class="form-control"
+						name="category" value='${product.category}' readonly="readonly">
+				</div>
+				<div class="form-group">
+					<label>상품내용</label>
+					<textarea class="form-control" name="content" rows="3"
+						readonly="readonly">${product.content}</textarea>
+				</div>
+				<button class="btn btn-info"
+					onclick="location.href='/product/modify?proID=${product.proID}'">Modify
+				</button>
+				<button class="btn btn-success"
+					onclick="location.href='/product/list'">List</button>
+				<button class="btn btn-warning" id="addCartBtn">Add Cart</button>
+				<!-- /.table-responsive -->
 
-            </div>
-            <!-- /.table-responsive -->
-        </div>
-        <!-- /.panel-body -->
-    </div>
-    <!-- /.panel -->
-		    <div class="panel panel-info">
-		        <div class="panel-heading">Attached File List</div>
-		        <div class="panel-body">
-		            <div class="form-group uploadResult">
-						<img class="card-img-top"
-										src="/display?fileName=${product.imageName }"
-										alt="card image cap" width="100%">		                
+			</div>
+			<!-- /.table-responsive -->
+		</div>
+		<!-- /.panel-body -->
+	</div>
+	<!-- /.panel -->
+	<div class="panel panel-info">
+		<div class="panel-heading">Attached File List</div>
+		<div class="panel-body">
+			<div class="form-group uploadResult">
+				<img class="card-img-top"
+					src="/display?fileName=${product.imageName }" alt="card image cap"
+					width="100%">
 
-		            </div>
-		        </div>
-		    </div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <!-- /.col-lg-6 -->
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <i class="fa fa-comments fa-fw"></i> Reply
-        <button id="addReplyBtn">New Reply</button>
-    </div>
-    <div class="panel-body">
-        <ul class="chat">
-            <li class="left clearfix" data-rno="10">
-                <div>
-                    <div class="header">
-                        <strong class="primary-font">user00</strong> <small
-                            class="pull-right text-muted">2021-05-18 13:13</small>
-                    </div>
-                    <p>Good job</p>
-                </div>
-            </li>
-        </ul>
-    </div>
+	<div class="panel-heading">
+		<i class="fa fa-comments fa-fw"></i> Reply
+		<button id="addReplyBtn">New Reply</button>
+	</div>
+	<div class="panel-body">
+		<ul class="chat">
+			<li class="left clearfix" data-rno="10">
+				<div>
+					<div class="header">
+						<strong class="primary-font">user00</strong> <small
+							class="pull-right text-muted">2021-05-18 13:13</small>
+					</div>
+					<p>Good job</p>
+				</div>
+			</li>
+		</ul>
+	</div>
 </div>
 <!-- /.reply panel -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-     aria-labelledby="myModallabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-hidden="true">&times;
-                </button>
-                <h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Reply</label> <input class="form-control" name='reply'
-                                                value='New Reply!!'/>
-                </div>
-                <div class="form-group">
-                    <label>Replyer</label> <input class="form-control" name='replyer'
-                                                  value='New Replyer!!'/>
-                </div>
-                <div class="form-group">
-                    <label>ReplyDate</label> <input class="form-control"
-                                                    name='replyDate' value='New Reply Date!!'/>
-                </div>
-                <!--             //replyer, replyDate 를위한 div 배치 -->
-            </div>
-            <div class="modal-footer">
-                <button id='modalRemoveBtn' type="button" class="btn btn-info">Remove</button>
-                <button id='modalModBtn' type="button" class="btn btn-info">Modify</button>
-                <button id='modalRegisterBtn' type="button" class="btn btn-info">Register</button>
-                <button id='modalCloseBtn' type="button" class="btn btn-info">Close</button>
-                <!--             id 가 modalRemoveBtn, modalRegisterBtn, modalCloseBtn 배치 -->
-            </div>
-        </div>
-    </div>
+	aria-labelledby="myModallabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label>Reply</label> <input class="form-control" name='reply'
+						value='New Reply!!' />
+				</div>
+				<div class="form-group">
+					<label>Replyer</label> <input class="form-control" name='replyer'
+						value='New Replyer!!' />
+				</div>
+				<div class="form-group">
+					<label>ReplyDate</label> <input class="form-control"
+						name='replyDate' value='New Reply Date!!' />
+				</div>
+				<!--             //replyer, replyDate 를위한 div 배치 -->
+			</div>
+			<div class="modal-footer">
+				<button id='modalRemoveBtn' type="button" class="btn btn-info">Remove</button>
+				<button id='modalModBtn' type="button" class="btn btn-info">Modify</button>
+				<button id='modalRegisterBtn' type="button" class="btn btn-info">Register</button>
+				<button id='modalCloseBtn' type="button" class="btn btn-info">Close</button>
+				<!--             id 가 modalRemoveBtn, modalRegisterBtn, modalCloseBtn 배치 -->
+			</div>
+		</div>
+	</div>
 </div>
 <!-- /.modal fade -->
 </div>
 <!-- /.row -->
 <script src="/resources/js/reply.js"></script>
+<script src="/resources/js/cart.js"></script>
 <script>
     /* $(document).ready(()=> {
         console.log(replyService);
@@ -298,7 +305,40 @@
         });
         // uploadResult 태그에 해당 데이터를 출력하기위한 함수
     })
-
-
+	$("#addCartBtn").on("click", (e) => {
+        
+        //var uID=sessionStorage.getItem('userID');
+        cartService.get({
+        	//userID : uID,
+        	userID:'admin1',
+        	proID:proIDValue
+        },(result)=>{
+        	console.log(result);
+        	/* if(!result){
+        		console.log("Need add");
+        		cartService.add({
+        			//userID : uID,
+                	userID:'admin1',
+                	proID:proIDValue,
+        			amount:1
+        		},(res)=>{
+        			alert("장바구니에 물건을 추가했습니다.");
+        		});
+        		 
+        	 }else{
+        		console.log("Need update");
+        		 cartService.update({
+        			//userID : uID,
+                	userID:'admin1',
+                	proID:proIDValue,
+        			amount:result.amount+1
+        		},(res)=>{
+        			alert("장바구니에 물건을 추가했습니다.");
+        		}); 
+        	}
+        	 */
+        });
+    });
+    
 </script>
-<%@include file="../includes/footer.jsp" %>
+<%@include file="../includes/footer.jsp"%>
