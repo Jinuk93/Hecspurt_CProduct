@@ -59,7 +59,7 @@
 		<div class="panel-heading">Attached File List</div>
 		<div class="panel-body">
 			<div class="form-group uploadResult">
-				<img class="card-img-top"
+				<img class="card-img-top" style ="width : 20%;"
 					src="/display?fileName=${product.imageName }" alt="card image cap"
 					width="100%">
 
@@ -100,16 +100,16 @@
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
-					<label>Reply</label> <input class="form-control" name='reply'
+					<label>Reply</label> <input class="form-control" name='content'
 						value='New Reply!!' />
 				</div>
 				<div class="form-group">
-					<label>Replyer</label> <input class="form-control" name='replyer'
+					<label>Replyer</label> <input class="form-control" name='userid'
 						value='New Replyer!!' />
 				</div>
 				<div class="form-group">
 					<label>ReplyDate</label> <input class="form-control"
-						name='replyDate' value='New Reply Date!!' />
+						name='regDate' value='New Reply Date!!' />
 				</div>
 				<!--             //replyer, replyDate 를위한 div 배치 -->
 			</div>

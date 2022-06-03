@@ -44,7 +44,7 @@
                                 	<label>UpdateDate</label><input class="form-control" name="updateDate" value='<fmt:formatDate pattern="yyyy-MM-dd" value="${product.updateDate}"/>' readonly="readonly"/>
                                 </div>
                                 <div class="form-group">
-			                        <label>이미지</label> <img class="card-img-top"
+			                        <label>이미지</label> <img class="card-img-top" style ="width : 20%;"
 										src="/display?fileName=${product.imageName }"
 										alt="card image cap" width="100%">		                
 			                        

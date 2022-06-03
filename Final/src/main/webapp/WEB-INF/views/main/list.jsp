@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@include file="../includes/header.jsp"%>
 
 
@@ -17,7 +18,7 @@
 			<div class="panel-heading">
 				제품 리스트
 				<button id="regBtn" type="button"
-					class="btn btn-xs btn-info pull-right ">글쓰기</button>
+					class="btn btn-xs btn-info pull-right ">상품등록</button>
 			</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
@@ -40,7 +41,8 @@
 									<p>${product.content}</p>
 								</div>
 								<div class="panel-footer">
-									<h6 class="card-subtitle text-right">${product.unitprice}</h6>
+									<h6 class="card-subtitle text-right" id = "unitprice">﻿
+									<fmt:formatNumber value="${product.unitprice}" pattern="#,###"/>원</h6>
 								</div>
 							</div>
 						</div>
@@ -111,7 +113,7 @@
 	$(document).ready(function() {
 		$("#regBtn").on("click", function() {
 			self.location = "/product/register2";
-		})
+		});
 		
 		var searchForm = $("#searchForm");
 		$("#searchForm button").on("click", function(e) {
@@ -126,13 +128,19 @@
 			e.preventDefault();
 			searchForm.submit();
 
-		})
+		});
 		
-
-	
 	});
-	
-	
+		/* var unitprice = documnet.getElementById("unitprice");
+		console.log(unitprice);
+		function numberWithCommas(unitprice) {
+		    return unitprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}; */
+		
+		/* var unitprice = $('#unitprice').text();
+		var unitprice2 = unitprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		$('#unitprice').text(unitprice2); */
+		
 </script>
 
 <%@include file="../includes/footer.jsp"%>
