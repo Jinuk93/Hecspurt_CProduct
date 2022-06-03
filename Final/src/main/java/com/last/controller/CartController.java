@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.last.domain.CartVO;
+import com.last.domain.ProductVO;
 import com.last.service.CartService;
+import com.last.service.ProductService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -26,6 +29,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class CartController {
 	private CartService service;
+	private ProductService proService;
 	
 	@PostMapping(value="/new", consumes="application/json",produces= {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> create(@RequestBody CartVO vo){
@@ -44,7 +48,17 @@ public class CartController {
 		log.info("get List Cart");
 		return new ResponseEntity<>(service.getListByID(userID),HttpStatus.OK);
 	}
-	
+	@GetMapping(value="/list")
+	public ModelAndView getList(){
+		log.info("Cart List Page");
+		ModelAndView mav = new ModelAndView("/cart/list");
+		return mav;
+	}
+	@GetMapping(value="/getPro/{proID}",produces= {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
+	public ResponseEntity<ProductVO> getPro(@PathVariable("proID")Long proID){
+		log.info("get Product info");
+		return new ResponseEntity<>(proService.get(proID),HttpStatus.OK);
+	}
 	@DeleteMapping(value="/{cID}",produces= {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> remove(@PathVariable("cID")int cID){
 		log.info("remove : "+cID);

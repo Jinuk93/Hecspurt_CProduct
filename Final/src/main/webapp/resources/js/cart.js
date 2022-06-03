@@ -14,8 +14,8 @@ var cartService=(function(){
 		})
 	}
 	function getList(userID, callback, error){
-		var userID=uesrID;
-		$.getJSON('/cart/'+userID+'.json',
+		var userId=userID;
+		$.getJSON('/cart/list/'+userId+'.json',
 			function(data){
 				if(callback){ callback(data);}
 				}).fail(function(xhr, status, err){
@@ -65,11 +65,24 @@ var cartService=(function(){
 			}
 		});
 	}
+	function getPro(proID, callback, error){
+		$.ajax({
+			type:'get',
+			url:'/cart/getPro/'+proID,
+			success: function(getProResult, status, xhr){
+				if(callback){callback(getProResult);}
+			},
+			error: function(xhr, status,er){
+				if(error){error(er);}
+			}
+		});
+	}
 	return {
 		add:add,
 		getList : getList,
 		remove: remove,
 		update: update,
-		get:get
+		get:get,
+		getPro:getPro
 		};
 })();
