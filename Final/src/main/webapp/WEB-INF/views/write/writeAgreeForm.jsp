@@ -9,7 +9,7 @@
         <p id="memberWriteTitle">회원가입</p>
       </li>
       <div align="center">
-        <img src="/resources/image/logo.png" id="image1">
+        <a href="/"><img src="/resources/image/logo.png" id="image1" ></a>
       </div>
       <li id="memberWriteContent">
           <ul>

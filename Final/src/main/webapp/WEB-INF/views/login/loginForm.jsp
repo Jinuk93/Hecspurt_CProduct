@@ -22,19 +22,19 @@
 		</section>
 		
 		<section id="easy-login-wrap">
-			<ul>
+			<!-- <ul>
 				<li>
 					<button type="button" id="kakao-login-btn" class="btn">
 						<img src="/resources/image/kakao.png" alt="kakao">
 						<span>카카오 로그인</span>
 					</button>
 				</li>
-			</ul>
+			</ul> -->
 			<div id="result-div"> </div>
 			<div id="find-write">
 				<p><a href="">아이디 찾기</a></p> | 
 				<p><a href="">비밀번호 찾기</a></p> | 
-				<p><a href="">회원가입</a></p>
+				<p><a href="/write/writeForm">회원가입</a></p>
 			</div>
 		</section>
 	</div>
