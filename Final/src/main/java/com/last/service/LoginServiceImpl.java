@@ -1,41 +1,42 @@
-//package com.last.service;
-//
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Service;
-//
-//import com.dao.LoginDAO;
-//import com.last.domain.UserVO;
-//
-//@Service
-//public class LoginServiceImpl implements LoginService{
-//	@Autowired
-//	private LoginDAO loginDAO;
-//	@Override
-//	public UserVO login(UserVO memberDTO) {
-//		return loginDAO.login(memberDTO);
-//	}
-//	@Override
-//	public UserVO loginEmailCheck(UserVO memberDTO) {
-//		return loginDAO.loginEmailCheck(memberDTO);
-//	}
-//	@Override
-//	public UserVO findIdQna(UserVO memberDTO) {
-//		return loginDAO.findIdQna(memberDTO);
-//	}
-//	@Override
-//	public UserVO loginIdCheck(String id) {
-//		return loginDAO.loginIdCheck(id);
-//	}
-//	@Override
-//	public void findPwdUpdate(UserVO memberDTO) {
-//		loginDAO.findPwdUpdate(memberDTO);
-//	}
-//	@Override
-//	public void kakaoWrite(UserVO memberDTO) {
-//		loginDAO.kakaoWrite(memberDTO);	
-//	}
-//	@Override
-//	public void loginTime(String id) {
-//		loginDAO.loginTime(id);
-//	}
-//}
+package com.last.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.last.domain.UserVO;
+import com.last.mapper.LoginMapper;
+
+import lombok.extern.log4j.Log4j;
+
+
+@Log4j
+@Service
+//@AllArgsConstructor
+public class LoginServiceImpl implements LoginService{
+	@Autowired
+	private LoginMapper loginMapper;
+
+	@Override
+	 public boolean loginCheck(UserVO vo, HttpSession session) {
+        boolean result = loginMapper.loginCheck(vo);
+        System.out.println("result : " + result+ "\n" + vo + "\n");
+        if (result) { // true�씪 寃쎌슦 �꽭�뀡�뿉 �벑濡�
+        	UserVO vo2 = loginMapper.viewMember(vo);
+        	System.out.println("uservo2" + vo2);
+            // �꽭�뀡 蹂��닔 �벑濡�
+            session.setAttribute("userID", vo2.getUserID());
+            session.setAttribute("uName", vo2.getUName());
+        }      
+        return result;
+    }
+
+	@Override
+	public UserVO viewMember(UserVO vo) {
+		return null;
+	}
+}

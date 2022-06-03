@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="/views/css/login.css">
-
-<form name="loginForm" id="loginForm">
-<div id="headerBackground"> </div>
+<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="/resources/css/login.css">
+<form name="loginForm" id="loginForm" method="post" action="/login/login">
 <div id="main-container">
 	<h1>로그인</h1>
 	<div id="main-wrap">
@@ -13,13 +11,13 @@
 		</div>
 		<section id="login-input-wrap">
 			<div id="id-input-wrap">	
-				<input type="text" id="id-input" name="id" placeholder="아이디"></input>
+				<input type="text" id="id-input" name="userID" placeholder="아이디"></input>
 			</div>
 			<div id="pwd-input-wrap">	
 				<input type="password" id="pwd-input" name="pwd" placeholder="비밀번호"></input>
 			</div>
 			<div id="login-button-wrap">
-				<button type="button" id="login-button"  class="btn">로그인</button>
+				<button type="submit" id="login-button" class="btn">로그인</button>
 			</div>
 		</section>
 		
@@ -34,16 +32,15 @@
 			</ul>
 			<div id="result-div"> </div>
 			<div id="find-write">
-				<p><a href="/login/findId">아이디 찾기</a></p> | 
-				<p><a href="/login/findPwd">비밀번호 찾기</a></p> | 
-				<p><a href="/write/memberWrite">회원가입</a></p>
+				<p><a href="">아이디 찾기</a></p> | 
+				<p><a href="">비밀번호 찾기</a></p> | 
+				<p><a href="">회원가입</a></p>
 			</div>
 		</section>
 	</div>
 </div>
 </form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/resources/js/login.js"></script>
+<!-- <script type="text/javascript" src="/resources/js/login.js"></script> -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
-
